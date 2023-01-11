@@ -7,10 +7,10 @@ in
 
 {
   imports = [
-    ./hosts.nix
-    ./services.nix
     ./hardware.nix
-    ./resolved-hosts.nix
+    ./kernels/latest.nix
+    ./system/services.nix
+    ./system/resolved-hosts.nix
     ../hm-stuff/home.nix
     (import "${hm}/nixos")
   ];

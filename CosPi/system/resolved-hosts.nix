@@ -1,4 +1,6 @@
 {
+  imports = [ ./hosts.nix ];
+
   networking.extraHosts = ''
     quora.com www.quora.com
     142.250.182.196 google.in

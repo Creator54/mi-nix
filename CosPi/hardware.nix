@@ -3,7 +3,7 @@
 {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
-    ./fileSystems.nix
+    ./system/fileSystems.nix
   ];
 
   boot = {

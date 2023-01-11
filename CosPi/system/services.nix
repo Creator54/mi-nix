@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 let
-  userConfig = (import ../userConfig.nix);
+  userConfig = (import ../../userConfig.nix);
 in
 
 {
