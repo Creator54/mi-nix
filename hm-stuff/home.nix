@@ -2,7 +2,7 @@
 
 let
   userConfig = (import ../userConfig.nix);
-  cfg = "/home/${userConfig.user}/.config/nixpkgs/configs";
+  cfg = ./configs;
 in
 {
   home-manager.users.${userConfig.user} = { pkgs, ... }: {
@@ -38,6 +38,7 @@ in
         ".config/mpv/script-opts/youtube-quality.conf".source = "${cfg}/mpv/youtube-quality.conf";
         ".config/gtk-3.0".source                              = "${cfg}/gtk-3.0";
         ".config/htop".source                                 = "${cfg}/htop";
+        ".config/clipit".source                               = "${cfg}/clipit";
         ".icons".source                                       = "${cfg}/icons";
         ".xinitrc".source                                     = "${cfg}/xinitrc";
         ".Xresources".source                                  = "${cfg}/Xresources";
