@@ -2,7 +2,6 @@
 
 let
   userConfig = (import ../userConfig.nix);
-  hm = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/release-${userConfig.stateVersion}.tar.gz";
 in
 
 {
@@ -11,8 +10,6 @@ in
     ./kernels/latest.nix
     ./system/services.nix
     ./system/resolved-hosts.nix
-    ../hm-stuff/home.nix
-    (import "${hm}/nixos")
   ];
 
   boot = {
