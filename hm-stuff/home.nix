@@ -36,6 +36,7 @@ in
         ".config/xplr".source                                 = "${cfg}/xplr";
         ".config/mpv/scripts".source                          = "${cfg}/mpv/scripts";
         ".config/mpv/script-opts/youtube-quality.conf".source = "${cfg}/mpv/youtube-quality.conf";
+        ".config/default.png".source                          = "${cfg}/default.png";
         ".config/gtk-3.0".source                              = "${cfg}/gtk-3.0";
         ".config/htop".source                                 = "${cfg}/htop";
         ".config/clipit".source                               = "${cfg}/clipit";
