@@ -1,7 +1,14 @@
 { config, pkgs, lib, ... }:
 
 let
-  startPage = builtins.fetchurl https://raw.githubusercontent.com/Creator54/tilde/main/index.html;
+  startPage = builtins.fetchurl{
+   url = "https://raw.githubusercontent.com/Creator54/tilde/main/index.html";
+   sha256 = "sha256:0yy41c1hxkypfdjddv9bqghciyc3g1jr9q1jbrpi5s67vw4mwhhc";
+  };
+  userChromeCSS = builtins.fetchurl{
+    url = "https://raw.githubusercontent.com/creator54/cascade/main/userChrome.css";
+    sha256 = "sha256:18rplkfnx4mszh9gl4nyz9mkar57s13cgyzgiyyah9z6mpdjbmc1";
+  };
 in
 {
   nixpkgs.config.packageOverrides = pkgs: {
@@ -34,9 +41,9 @@ in
         name = "Default";
         isDefault = true;
         #userChrome = builtins.readFile "/home/creator54/cascade/userChrome.css";
-        userChrome = builtins.readFile "${builtins.fetchurl https://raw.githubusercontent.com/creator54/cascade/main/userChrome.css}";
+        userChrome = builtins.readFile userChromeCSS;
         settings = { #about:config
-        "browser.startup.homepage" = "${builtins.fetchurl https://raw.githubusercontent.com/creator54/tilde/main/index.html}";
+        "browser.startup.homepage" = "${startPage}";
           "browser.search.region" = "IN";
           "browser.search.isUS" = false;
           "browser.download.animateNotifications" = false;
