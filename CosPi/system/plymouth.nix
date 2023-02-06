@@ -25,7 +25,7 @@ let
 in
 {
   boot = {
-    kernelParams = [ "quiet" "splash" "vga=current" "rd.systemd.show_status=false" "rd.udev.log_level=3" "udev.log_priority=3" ];
+    kernelParams = [ "quiet" "splash" "vga=current" "rd.systemd.show_status=false" "rd.udev.log_level=3" "udev.log_priority=3" "fbcon=nodefer" ];
     consoleLogLevel = 0;
     plymouth = {
       enable = true;
