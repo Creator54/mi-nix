@@ -13,16 +13,6 @@ in
       ./pkgs/firefox.nix
     ];
 
-    xdg.mimeApps = {
-      enable = true;
-      defaultApplications = {
-        "text" = [ "neovide" "vim" ];
-        "file" = [ "neovide" "vim" ];
-        "log" = [ "neovide" "vim" ];
-        "jpg" = [ "sxiv" ];
-      };
-    };
-
     home = {
       username = "${userConfig.user}";
       stateVersion = "${userConfig.stateVersion}";
