@@ -8,7 +8,7 @@ in
 {
   imports = [
     ./hardware.nix
-    ./kernels/latest.nix
+    ./kernels/xanmod.nix
     ./system/services.nix
     ./system/plymouth.nix
     ./system/resolved-hosts.nix
