@@ -10,6 +10,7 @@ in
     ./hardware.nix
     ./kernels/latest.nix
     ./system/services.nix
+    ./system/plymouth.nix
     ./system/resolved-hosts.nix
     ../hm-stuff/home.nix
     (import "${hm}/nixos")
@@ -18,7 +19,7 @@ in
   boot = {
     loader = {
       systemd-boot.enable = true;
-      timeout = 1; #things can get messy anytime atleast have a sec to switch
+      timeout = 0; #press Esc while booting if things get messy
       efi.canTouchEfiVariables = true;
     };
     cleanTmpDir = true;
