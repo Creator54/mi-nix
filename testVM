@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+set -e -o pipefail
+
+config="CosPi/configuration.nix"
+testConfig=$(echo $config | sed 's/\//\/test-/g')
+
+if grep -rnw "./system/plymouth.nix" &>/dev/null; then
+  echo "Warning: Plymouth doesn't work in VM, hence building without it !"
+  line=$(grep -rnw "./system/plymouth.nix" | grep $config | cut -d":" -f2)
+  sed "${line}d" $config > $testConfig
+  config=$testConfig
+fi
+
+nixos-rebuild build-vm -I nixos-config=$config
+./result/bin/run-CosPi-vm
+rm CosPi.qcow2 $testConfig
