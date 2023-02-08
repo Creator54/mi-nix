@@ -1,7 +1,7 @@
 { pkgs, lib, ... }:
 let
-  localDwm = /home/creator54/dwm;
-  localDwmBlocks = /home/creator54/dwmblocks;
+  localDwm = /home/${(import ../../userConfig.nix).user}/dwm;
+  localDwmBlocks = /home/${(import ../../userConfig.nix).user}/dwmblocks;
   dwm = pkgs.dwm.overrideAttrs (old: {
     src = if builtins.pathExists localDwm then localDwm else builtins.fetchTarball "https://github.com/creator54/dwm/tarball/main";
     nativeBuildInputs = with pkgs; [ #writing once works for both currently, sort of bug and feature
