@@ -20,6 +20,7 @@ in
       enableNixpkgsReleaseCheck = true;
 
       file = {
+        ".config/nixpkgs/config.nix".source                   = "${cfg}/config.nix";
         ".config/gromit-mpx.ini".source                       = "${cfg}/gromit-mpx.ini";
         ".config/flameshot".source                            = "${cfg}/flameshot";
         ".config/fish".source                                 = "${cfg}/fish";
