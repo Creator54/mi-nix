@@ -2,8 +2,9 @@
 
 {
   imports = [
-    (modulesPath + "/installer/scan/not-detected.nix")
     ./system/fileSystems.nix
+    (modulesPath + "/installer/scan/not-detected.nix")
+    (if (import ../userConfig.nix).hybridSleep.enable then ./system/hybridSleep.nix else {})
   ];
 
   boot = {

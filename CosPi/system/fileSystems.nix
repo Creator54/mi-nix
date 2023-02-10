@@ -1,18 +1,21 @@
+let
+  fs = (import ../../userConfig.nix).fs;
+in
 {
   fileSystems = {
     "/" = {
-      device = "/dev/sda2";
+      device = fs.root;
       fsType = "ext4";
       options = [ "noatime" ];
     };
 
     "/boot" = {
-      device = "/dev/sda1";
+      device = fs.boot;
       fsType = "vfat";
     };
 
     "/home" = {
-      device = "/dev/sda3";
+      device = fs.home;
       fsType = "ext4";
     };
   };
