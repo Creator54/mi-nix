@@ -14,6 +14,7 @@ in
   home.packages = with pkgs;[
     feh rofi dmenu betterlockscreen libnotify
     networkmanagerapplet
+    xdotool
     flameshot
     xorg.xbacklight
     xorg.xf86videointel
