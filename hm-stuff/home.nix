@@ -1,10 +1,10 @@
 { config, pkgs, ... }:
 
 let
-  userConfig = (import ../userConfig.nix);
+  uc = (import ../userConfig.nix);
 in
 {
-  home-manager.users.${userConfig.user} = { pkgs, ... }: {
+  home-manager.users.${uc.user} = { pkgs, ... }: {
     imports = [
       ./wm/dwm.nix
       ./wm/wm-pkgs.nix
@@ -14,9 +14,9 @@ in
     ];
 
     home = {
-      username = "${userConfig.user}";
-      stateVersion = "${userConfig.stateVersion}";
-      homeDirectory = "/home/${userConfig.user}";
+      username = "${uc.user}";
+      stateVersion = "${uc.stateVersion}";
+      homeDirectory = "/home/${uc.user}";
       enableNixpkgsReleaseCheck = true;
     };
   };

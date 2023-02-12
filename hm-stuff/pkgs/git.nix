@@ -1,11 +1,11 @@
 { config, pkgs, lib, ... }:
 let
-  userConfig = (import ../../userConfig.nix);
+  uc = (import ../../userConfig.nix);
 in
 {
   programs.git = {
     enable = true;
-    userName = "${userConfig.user}";
-    userEmail = "${userConfig.userEmail}";
+    userName = "${uc.user}";
+    userEmail = "${uc.userEmail}";
   };
 }

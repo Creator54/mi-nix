@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 let
-  userConfig = (import ../../userConfig.nix);
+  uc = (import ../../userConfig.nix);
 in
 
 {
@@ -44,7 +44,7 @@ in
     getty = {
       greetingLine = "";
       helpLine = "";
-      autologinUser = "${userConfig.user}";
+      autologinUser = "${uc.user}";
     };
     thermald.enable = true;
     upower.enable = true;

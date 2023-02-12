@@ -1,12 +1,15 @@
 { config, ... }:
 
 let
-  userConfig =(import ../../userConfig.nix);
-  hs = userConfig.hybridSleep;
+  uc =(import ../../userConfig.nix);
 in
 {
   boot = {
-    resumeDevice = userConfig.fs.root;
-    kernelParams = [ "resume_offset=${hs.resume_offset}" ];
+    resumeDevice = uc.fs.root;
+    kernelParams = [ "resume_offset=${uc.hybridSleep.resume_offset}" ];
+  };
+  services.logind = {
+    lidSwitch = "hybrid-sleep";
+    lidSwitchDocked = "hybrid-sleep";
   };
 }

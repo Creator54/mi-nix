@@ -1,8 +1,8 @@
 { config, pkgs, ... }:
 
 let
-  userConfig = (import ../userConfig.nix);
-  hm = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/release-${userConfig.stateVersion}.tar.gz";
+  uc = (import ../userConfig.nix);
+  hm = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/release-${uc.stateVersion}.tar.gz";
 in
 
 {
@@ -28,7 +28,7 @@ in
 
   networking = {
     networkmanager.enable = true;
-    hostName = "${userConfig.host}";
+    hostName = "${uc.host}";
     nameservers = ["1.1.1.1" "8.8.4.4" "8.8.8.8" "9.9.9.9"];
   };
 
@@ -44,11 +44,11 @@ in
 
   i18n.defaultLocale = "en_US.UTF-8";
 
-  users.users.${userConfig.user} = {
+  users.users.${uc.user} = {
     shell = pkgs.fish;
     isNormalUser = true;
     extraGroups = [ "power" "storage" "wheel" "audio" "video" "networkmanager" ];
-    hashedPassword = userConfig.userHashedPass;
+    hashedPassword = uc.userHashedPass;
   };
 
   security.allowSimultaneousMultithreading = true;
@@ -72,11 +72,11 @@ in
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       ];
       auto-optimise-store = true; #automatically detects files in the store that have identical contents and replaces with hard links.
-      trusted-users = [ "root" "${userConfig.user}" ]; #for cachix to work
+      trusted-users = [ "root" "${uc.user}" ]; #for cachix to work
     };
   };
 
   time.hardwareClockInLocalTime = true;
-  system.stateVersion = "${userConfig.stateVersion}";
+  system.stateVersion = "${uc.stateVersion}";
 }
 
