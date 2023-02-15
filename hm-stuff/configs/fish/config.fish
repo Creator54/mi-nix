@@ -31,6 +31,7 @@ alias e $EDITOR
 alias vim nvim
 alias recent 'v -r'
 
+
 alias r "nix-env --uninstall"
 alias q "nix-env -q"
 alias n "which nvidia-offload&> /dev/null && nvidia-offload; or nnn"

@@ -15,6 +15,7 @@ in
     ./mcfly.nix
     ./zathura.nix
     ./ani-cli.nix
+    ./scripts/scripts.nix
   ];
 
   services.kdeconnect = {

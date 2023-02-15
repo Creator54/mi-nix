@@ -8,7 +8,7 @@ numlockx on &
 feh --bg-fill --randomize ~/wallpapers/
 xset -b &
 pkill clipit; clipit -n &
-kdeconnect-indicator &
+#kdeconnect-indicator &
 
 #betterlockscreen -l blur --time-format "%I:%M %p"
 
