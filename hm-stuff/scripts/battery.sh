@@ -39,16 +39,37 @@ case "$1" in
     state=$($0 state)
     if [ "$state" = "Discharging" ]; then
       icon=""
+      if [ -f "/tmp/.battery_notif_charge" ] || [ -f "/tmp/.battery_notif_full" ]; then
+        rm "/tmp/.battery_notif_charge" || rm "/tmp/.battery_notif_full"
+      fi
+      if [ ! -f "/tmp/.battery_notif_discharge" ]; then
+        touch "/tmp/.battery_notif_discharge"
+        notify-send -u normal "Battery: $($0)" "Discharging, running on Battery !"
+      fi
     elif [ "$state" = "Full" ]; then
       icon=""
       rem="full"
+      if [ ! -f "/tmp/.battery_notif_full" ]; then
+        touch "/tmp/.battery_notif_full"
+        notify-send -u normal "Battery: $($0)" "Battery fully charged !"
+      fi
     else
-      icon="ﮣ"
+      icon="⚡️"
+      if [ ! -f "/tmp/.battery_notif_charge" ]; then
+        touch "/tmp/.battery_notif_charge"
+        notify-send -u normal "Battery: $($0)" "Charging, connected to Power Supply !"
+        if [ -f "/tmp/.battery_notif_discharge" ]; then
+          rm "/tmp/.battery_notif_discharge"
+        fi
+      fi
     fi
     printf "%s %s %s\n" "$icon" "$($0 %)" "$($0 rem)"
     ;;
   "info")
     acpi -i
+    ;;
+  "")
+    $0 fancy
     ;;
   *)
     echo "usage: $0 {state|%|rem|fancy|info}"
