@@ -9,12 +9,15 @@ case "$1" in
   "%")
     battery_percent=$(acpi -i | head -n 1 | cut -d' ' -f4 | cut -d',' -f1 | cut -d'%' -f1)
     echo "$battery_percent%"
-    if [ "$battery_percent" -le 50 ] && [ "$battery_percent" -gt 30 ]; then
+    if [ "$battery_percent" -le 50 ] && [ "$battery_percent" -gt 30 ] && [ ! -f "/tmp/.battery_notif_50" ]; then
       notify-send -u normal "Battery at $battery_percent%" "Battery level is getting low."
-    elif [ "$battery_percent" -le 30 ] && [ "$battery_percent" -gt 10 ]; then
+      touch "/tmp/.battery_notif_50"
+    elif [ "$battery_percent" -le 30 ] && [ "$battery_percent" -gt 10 ] && [ ! -f "/tmp/.battery_notif_30" ]; then
       notify-send -u critical "Battery at $battery_percent%" "Battery level is critically low. Please save your work and connect to a power source."
-    elif [ "$battery_percent" -le 10 ]; then
+      touch "/tmp/.battery_notif_30"
+    elif [ "$battery_percent" -le 10 ] && [ ! -f "/tmp/.battery_notif_10" ]; then
       notify-send -u critical "Battery at $battery_percent%" "Battery level is critically low. Please connect to a power source immediately."
+      touch "/tmp/.battery_notif_10"
     fi
     ;;
   "rem")
