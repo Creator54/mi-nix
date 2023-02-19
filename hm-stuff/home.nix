@@ -10,6 +10,7 @@ in
       ./wm/wm-pkgs.nix
       ./pkgs/general.nix
       ./pkgs/firefox.nix
+      ./scripts/scripts.nix
       ./configs/symlinks.nix
     ];
 
