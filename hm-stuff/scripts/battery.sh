@@ -2,12 +2,15 @@
 
 set -e -o pipefail
 
+TMP_FILE="/tmp/.battery_info"
+acpi -i > "$TMP_FILE"
+
 case "$1" in
   "state")
-    acpi -i | head -n 1 | cut -d' ' -f3 | cut -d',' -f1
+    awk '{print $3}' "$TMP_FILE" | head -n 1 | cut -d',' -f1
     ;;
   "%")
-    battery_percent=$(acpi -i | head -n 1 | cut -d' ' -f4 | cut -d',' -f1 | cut -d'%' -f1)
+    battery_percent=$(awk '{print $4}' "$TMP_FILE" | head -n 1 | cut -d',' -f1 | cut -d'%' -f1)
     echo "$battery_percent%"
     if [ "$battery_percent" -le 50 ] && [ "$battery_percent" -gt 30 ] && [ ! -f "/tmp/.battery_notif_50" ]; then
       notify-send -u normal "Battery at $battery_percent%" "Battery level is getting low."
@@ -21,8 +24,8 @@ case "$1" in
     fi
     ;;
   "rem")
-    rem=$(acpi -i | head -n 1 | cut -d' ' -f5)
-    rem_check=$(acpi -i | head -n 1 | cut -d' ' -f5 | cut -d':' -f1)
+    rem=$(awk '{print $5}' "$TMP_FILE" | head -n 1)
+    rem_check=$(awk '{print $5}' "$TMP_FILE" | head -n 1 | cut -d':' -f1)
     if [ ! -z "$rem" ]; then
       if [ "$rem_check" -eq 0 ]; then
         rem=$(echo "$rem" | cut -d':' -f2,3 | sed 's/:/m:/;s/$/s/')
@@ -66,7 +69,7 @@ case "$1" in
     printf "%s %s %s\n" "$icon" "$($0 %)" "$($0 rem)"
     ;;
   "info")
-    acpi -i
+    cat $TMP_FILE
     ;;
   "")
     $0 fancy
