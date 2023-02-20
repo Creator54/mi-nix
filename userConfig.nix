@@ -9,7 +9,7 @@
     root = "/dev/sda2";
     home = "/dev/sda3";
   };
-  hybridSleep = {
+  hibernation = {
     enable = true;
     resume_offset="2244125"; #sudo filefrag -v /swapfile | awk '{if($1=="0:"){print $4}}'
   };
