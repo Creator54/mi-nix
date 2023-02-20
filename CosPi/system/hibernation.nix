@@ -10,18 +10,15 @@ in
   };
 
 
-  # Suspend-then-hibernate everywhere
+  # hybrid-sleep everywhere
   services.logind = {
-    lidSwitch = "suspend-then-hibernate";
-    lidSwitchDocked = "suspend-then-hibernate";
-    lidSwitchExternalPower = "suspend-then-hibernate";
+    lidSwitch = "hybrid-sleep";
+    lidSwitchDocked = "hybrid-sleep";
+    lidSwitchExternalPower = "hybrid-sleep";
 
+    #HandlePowerKey works on short Press of powerButton, i.e <5 sec. else poweroff
     extraConfig = ''
       HandlePowerKey=hybrid-sleep
-      IdleAction=suspend-then-hibernate
-      IdleActionSec=5m
     '';
   };
-
-  systemd.sleep.extraConfig = "HibernateDelaySec=30m";
 }

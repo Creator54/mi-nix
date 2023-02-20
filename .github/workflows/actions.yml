@@ -1,0 +1,23 @@
+name: Test
+
+on:
+  push:
+    branches: [iso]
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: cachix/install-nix-action@v19
+        with:
+          nix_path: nixpkgs=channel:nixos-unstable
+      - run: export NIXPKGS_ALLOW_UNSUPPORTED_SYSTEM=1
+      - run: nix-channel --add https://github.com/nix-community/home-manager/archive/release-22.11.tar.gz home-manager
+      - run: nix-channel --add https://nixos.org/channels/nixos-22.11 nixos
+      - run: nix-build '<nixpkgs/nixos>' -A config.system.build.isoImage -I nixos-config=iso.nix
+      - uses: actions/upload-artifact@v2
+        with:
+          name: my-iso
+          path: ./result/iso/nixos-iso-*.iso
+

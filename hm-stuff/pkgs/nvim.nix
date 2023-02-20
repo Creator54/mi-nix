@@ -5,7 +5,7 @@ let
       owner = "creator54";
       repo = "starter";
       rev = "main";
-      sha256 = "sha256-RRKKGZTA3llY+5u/r8JMoaDsXLOBMIlEuC6JYbYJFSY=";
+      sha256 = "sha256-H7LqDudrCxK1jVJa2MVzUD3ulVy3LcQPFEHZPyjCF4c=";
     }
   );
 in

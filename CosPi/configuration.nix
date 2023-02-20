@@ -20,7 +20,7 @@ in
   boot = {
     loader = {
       systemd-boot.enable = true;
-      timeout = 0; #press Esc while booting if things get messy
+      timeout = 10; #press Esc while booting if things get messy
       efi.canTouchEfiVariables = true;
     };
     cleanTmpDir = true;

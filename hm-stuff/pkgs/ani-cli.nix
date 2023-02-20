@@ -6,7 +6,7 @@ let
       owner = "pystardust";
       repo = "ani-cli";
       rev = "master";
-      sha256 = "sha256-udNg2yWigUIM4ACqnBtl6VKHk6iapq0EZukjo7qOloI=";
+      sha256 = "sha256-8fpOCyv/XafrVy76jtazRoHW2gidjikgnRdaWzh8kY8=";
     });
   });
 in
