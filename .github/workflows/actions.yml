@@ -3,11 +3,11 @@ name: Test
 on:
   push:
     branches: [test]
-  env:
-    USER: 'runner'
 jobs:
   tests:
     runs-on: selenium/standalone-chrome
+    env:
+      USER: 'runner'
     steps:
       - uses: actions/checkout@v3
       - run: java --version && apt --version
