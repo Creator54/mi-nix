@@ -12,5 +12,5 @@ jobs:
       - uses: actions/checkout@v3
       - run: java --version && apt --version
 #      - run: ./gradlew run
-      - run: echo ${{ env.USER }}
+      - run: echo $USER
 
