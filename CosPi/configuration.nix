@@ -10,6 +10,7 @@ in
     ./hardware.nix
     ./system/bt.nix
     ./kernels/xanmod.nix
+    ./system/docker.nix
     ./system/services.nix
     ./system/plymouth.nix
     ./system/resolved-hosts.nix
