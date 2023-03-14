@@ -29,7 +29,6 @@ in
         ublock-origin
         #https-everywhere
         facebook-container
-        bypass-paywalls-clean
         return-youtube-dislikes
         multi-account-containers
         user-agent-string-switcher
