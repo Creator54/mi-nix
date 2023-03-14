@@ -18,10 +18,6 @@ in
 
     extraConfig = ''
       HandlePowerKey=hybrid-sleep
-      IdleAction=suspend-then-hibernate
-      IdleActionSec=5m
     '';
   };
-
-  systemd.sleep.extraConfig = "HibernateDelaySec=30m";
 }

@@ -11,6 +11,6 @@
   };
   hibernation = {
     enable = true;
-    resume_offset="2244125"; #sudo filefrag -v /swapfile | awk '{if($1=="0:"){print $4}}'
+    resume_offset="12462080"; #sudo filefrag -v /swapfile | awk '{if($1=="0:"){print $4}}'
   };
 }
