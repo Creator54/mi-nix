@@ -3,7 +3,7 @@ set -gx TERMINAL $TERM
 set -gx BROWSER firefox
 set -gx WALLPAPERS $HOME/wallpapers
 set -gx DOCUMENTS $HOME/Documents
-set -gx PAGER "bat"
+set -gx PAGER bat
 set -gx NNN_PLUG 'f:finder;o:fzopen;p:preview-tui;d:diffs;t:nmount;v:imgview;g:!git log;'
 set -gx NNN_FIFO '/tmp/nnn.fifo'
 set -gx NIX 'creator54@129.154.36.185'
@@ -16,15 +16,15 @@ fish_add_path -g $HOME/.config/rofi/bin
 direnv hook fish | source
 
 if which vim &>/dev/null
-  set -gx EDITOR vim
-  set -gx VISUAL vim
+    set -gx EDITOR vim
+    set -gx VISUAL vim
 else
-  set -gx EDITOR nvim
-  set -gx VISUAL nvim
+    set -gx EDITOR nvim
+    set -gx VISUAL nvim
 end
 
 if [ -f ~/api-chat ]
-  set -gx OPENAI_API_KEY (sed 's/\n//g' ~/api-chat)
+    set -gx OPENAI_API_KEY (sed 's/\n//g' ~/api-chat)
 end
 
 alias e $EDITOR
@@ -43,7 +43,6 @@ alias h "history | fzf | clip;echo copied to clipboard" #fish doesnt have proces
 #some git alias
 alias gi 'git init;git branch -M main'
 alias gb 'git branch'
-alias gr 'git remote'
 alias gl 'git log'
 alias gd 'git diff'
 alias gs 'git status'
@@ -54,15 +53,15 @@ alias gpull "git pull origin (gb | grep -e '*' | cut -d ' ' -f2)"
 
 alias hs hm
 alias files nautilus
-alias size "gdu"
-alias calc "eva"
+alias size gdu
+alias calc eva
 alias man batman
 alias share serve
-alias ftp "ncftp"
-alias usage "baobab"
-alias poweshell "pash"
-alias gallery "gthumb"
-alias pdfviewer "okular"
+alias ftp ncftp
+alias usage baobab
+alias poweshell pash
+alias gallery gthumb
+alias pdfviewer okular
 alias sys "cd /etc/nixos"
 alias clip "xclip -sel clip"
 alias apps "~/Apps-data/apps"
@@ -93,6 +92,6 @@ alias doge "xmrig -o rx.unmineable.com:3333 -a rx -k -u DOGE:DHzDUHACdrc5j6SM6bS
 set dir '~/.config/fish/scripts'
 
 for i in (ls /home/$USER/.config/fish/scripts/)
-  set script_name (echo $i |sed 's/.sh//')
-  alias $script_name "$dir/$i"
+    set script_name (echo $i |sed 's/.sh//')
+    alias $script_name "$dir/$i"
 end

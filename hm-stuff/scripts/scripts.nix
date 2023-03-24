@@ -2,6 +2,7 @@
 let
   link = config.lib.file.mkOutOfStoreSymlink;
   c = pkgs.writeShellScriptBin "c" ''${link ./c.sh} $@'';
+  gr = pkgs.writeShellScriptBin "gr" ''${link ./gr.sh} $@'';
   net = pkgs.writeShellScriptBin "net" ''${link ./net.sh} $@'';
   ram = pkgs.writeShellScriptBin "ram" ''${link ./ram.sh}'';
   cpu = pkgs.writeShellScriptBin "cpu" ''${link ./cpu.sh}'';
@@ -13,7 +14,7 @@ let
 in
 {
   home.packages = with pkgs; [
-    c net ram cpu fgit audio battery packages wifiInterface
+    c gr net ram cpu fgit audio battery packages wifiInterface
   ];
 }
 
