@@ -23,9 +23,8 @@ in
     indicator = true;
   };
 
-  home.packages = with pkgs; [
-    vlang bc zip helix notion-app-enhanced
-    wget htop github-cli nnn openssl xplr
+  home.packages = with unstable; [
+    bc wget htop github-cli nnn openssl xplr
     aria2 nodejs libclang gcc
     gnumake fzf vlc tdesktop ncftp
     capitaine-cursors fortune file gnome.nautilus
@@ -40,7 +39,7 @@ in
     papirus-maia-icon-theme fff acpi sxiv axel python39 groff #for ms macros to pdf
     pandoc texlive.combined.scheme-small #for converting .md files to pdf
     ddgr ytfzf
-    #(kodi.withPackages (p: with p; [ inputstream-adaptive pvr-iptvsimple inputstreamhelper ])) #kodi with jiotv, last is for drm
+    (kodi.withPackages (p: with p; [ inputstream-adaptive pvr-iptvsimple inputstreamhelper ])) #kodi with jiotv, last is for drm
   ];
   nixpkgs.config.allowUnfree = true;
 }

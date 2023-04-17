@@ -1,6 +1,6 @@
 { config, pkgs, lib, ... }:
 let
-  nvimConfig = if builtins.pathExists "${config.home.homeDirectory}/nvim/" then "${config.home.homeDirectory}/nvim/" else (
+  nvimConfig = if builtins.pathExists "${config.home.homeDirectory}/nvim" then "${config.home.homeDirectory}/nvim" else (
     pkgs.fetchFromGitHub{
       owner = "creator54";
       repo = "starter";
@@ -10,7 +10,10 @@ let
   );
 in
 {
-  home.file.".config/nvim".source = config.lib.file.mkOutOfStoreSymlink nvimConfig;
   programs.neovim.enable = true;
+  home = {
+    file.".config/nvim".source = config.lib.file.mkOutOfStoreSymlink nvimConfig;
+    packages = [ pkgs.luajit ]; #dep for some plugins
+  };
 }
 
