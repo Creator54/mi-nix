@@ -14,7 +14,7 @@ in
     ./system/docker.nix
     ./system/services.nix
     ./system/plymouth.nix
-    ./system/resolved-hosts.nix
+    ./system/hosts.nix
     ../hm-stuff/home.nix
     (import "${hm}/nixos")
   ];
