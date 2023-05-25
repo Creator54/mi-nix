@@ -22,7 +22,7 @@ if command -v dbus-update-activation-environment >/dev/null 2>&1; then
   dbus-update-activation-environment DISPLAY XAUTHORITY
 fi
 
-feh --bg-fill ~/.config/default.png
+#feh --bg-fill ~/.config/default.png
 
 if which xfce4-session; then
   exec startxfce4

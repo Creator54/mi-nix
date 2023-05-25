@@ -5,6 +5,10 @@ let
 in
 
 {
+  imports = [
+    ./redshift.nix
+  ];
+
   services = {
     xserver = {
       enable = true;

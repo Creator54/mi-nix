@@ -30,6 +30,7 @@ end
 alias e $EDITOR
 alias vim nvim
 alias recent 'v -r'
+alias chrome "google-chrome-stable --remote-debugging-port=9222 --user-data-dir=~/chromeData/ --remote-allow-origins=http://localhost:9222"
 
 
 alias r "nix-env --uninstall"

@@ -9,7 +9,6 @@ in
     ./git.nix
     ./bat.nix
     ./mpv.nix
-    ./sgpt.nix
     ./nvim.nix
     ./kitty.nix
     ./fonts.nix

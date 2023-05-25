@@ -9,7 +9,7 @@ in
   imports = [
     ./hardware.nix
     ./system/bt.nix
-    ./kernels/xanmod.nix
+    ./kernels/latest.nix
     ./system/virtManager.nix
     ./system/docker.nix
     ./system/services.nix
