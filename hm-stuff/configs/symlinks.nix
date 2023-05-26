@@ -17,6 +17,7 @@ in
     ".config/clipit".source                               = link ./clipit;
     ".icons".source                                       = link ./icons;
     ".xinitrc".source                                     = link ./xinitrc;
+    ".bashrc".source                                      = link ./bashrc;
     ".Xresources".source                                  = link ./Xresources;
   };
 }
