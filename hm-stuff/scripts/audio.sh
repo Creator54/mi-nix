@@ -9,9 +9,9 @@ if [ -z "$1" ]; then
     printf " %s" "$(amixer sget Master | awk -F"[][]" '/Left/ { print $2 }'|cut -d'%' -f1 | xargs)"
   fi
 
-  if bluetoothctl info "$1" | grep -q "Connected: yes"; then
-    printf ":%s\n" "$(bluetooth_battery "$1" | cut -d' ' -f6)"
-  fi
+  #if bluetoothctl info "$1" | grep -q "Connected: yes"; then
+  #  printf ":%s\n" "$(bluetooth_battery "$1" | cut -d' ' -f6)"
+  #fi
 else
   echo "Help : "
   echo "audio     : shows volume % + battery info if BT device connected"

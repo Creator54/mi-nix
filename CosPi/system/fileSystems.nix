@@ -20,13 +20,13 @@ in
     };
   };
 
-  zramSwap = {
-    enable = true;
-    algorithm = "zstd";
-    memoryPercent = 50;
-    numDevices = 1;
-    priority = 5; #matters only when using multiple swap devices
-  };
+  #zramSwap = {
+  #  enable = true;
+  #  algorithm = "zstd";
+  #  memoryPercent = 50;
+  #  numDevices = 1;
+  #  priority = 5; #matters only when using multiple swap devices
+  #};
 
   swapDevices = [ { device = "/swapfile"; size = 8192; } ];
 }
