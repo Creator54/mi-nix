@@ -24,7 +24,7 @@ in
 
   home.packages = with unstable; [
     bc wget htop github-cli nnn openssl xplr
-    aria2 nodejs libclang gcc
+    aria2 nodejs libclang gcc alacritty
     gnumake fzf vlc tdesktop ncftp
     capitaine-cursors fortune file gnome.nautilus
     colorpicker smartmontools jq
