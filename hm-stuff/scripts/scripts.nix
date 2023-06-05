@@ -16,6 +16,7 @@ let
   ram = pkgs.writeShellScriptBin "ram" ''${link ./ram.sh}'';
   cpu = pkgs.writeShellScriptBin "cpu" ''${link ./cpu.sh}'';
   fgit = pkgs.writeShellScriptBin "fgit" ''${link ./fgit.sh} "$@"'';
+  swap = pkgs.writeShellScriptBin "swap" ''${link ./swap.sh} "$@"'';
   audio = pkgs.writeShellScriptBin "audio" ''${link ./audio.sh} "$@"'';
   battery = pkgs.writeShellScriptBin "battery" ''${link ./battery.sh} "$@"'';
   packages = pkgs.writeShellScriptBin "packages" ''${link ./packages.sh}'';
@@ -23,7 +24,7 @@ let
 in
 {
   home.packages = with pkgs; [
-    c v gr net ram cpu fgit audio livewall battery packages wifiInterface
+    c v gr net ram cpu fgit swap audio livewall battery packages wifiInterface
   ];
 }
 
