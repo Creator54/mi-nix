@@ -25,4 +25,4 @@ mv "$source" "$tempDir/$source"
 mv "$destination" "$source"
 mv "$tempDir/$source" "$destination"
 
-echo "Files/directories renamed successfully."
+echo "Swapped files/directories successfully."
