@@ -1,14 +1,6 @@
 { config, pkgs, lib, ... }:
-
 let
-  startPage = builtins.fetchurl{
-   url = "https://raw.githubusercontent.com/Creator54/tilde/main/index.html";
-   sha256 = "sha256:0yy41c1hxkypfdjddv9bqghciyc3g1jr9q1jbrpi5s67vw4mwhhc";
-  };
-  userChromeCSS = builtins.fetchurl{
-    url = "https://raw.githubusercontent.com/creator54/cascade/main/userChrome.css";
-    sha256 = "sha256:18rplkfnx4mszh9gl4nyz9mkar57s13cgyzgiyyah9z6mpdjbmc1";
-  };
+ link = config.lib.file.mkOutOfStoreSymlink;
 in
 {
   nixpkgs.config.packageOverrides = pkgs: {
@@ -42,10 +34,9 @@ in
         id = 0;
         name = "Default";
         isDefault = true;
-        #userChrome = builtins.readFile "/home/creator54/cascade/userChrome.css";
-        userChrome = builtins.readFile userChromeCSS;
+        userChrome = builtins.readFile "${link ./userChrome.css}";
         settings = { #about:config
-        "browser.startup.homepage" = "${startPage}";
+        "browser.startup.homepage" = "${link ./index.html}";
         "browser.search.region" = "IN";
         "browser.search.isUS" = false;
         "browser.download.animateNotifications" = false;
