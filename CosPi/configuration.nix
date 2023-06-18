@@ -20,7 +20,12 @@ in
 
   boot = {
     loader = {
-      systemd-boot.enable = true;
+      systemd-boot = {
+        enable = true;
+        memtest86 = {
+          enable = true;
+        };
+      };
       timeout = 0; #press Esc while booting if things get messy
       efi.canTouchEfiVariables = true;
     };
@@ -80,6 +85,7 @@ in
     };
   };
 
+  nixpkgs.config.allowUnfree = true;
   time.hardwareClockInLocalTime = true;
   system.stateVersion = "${uc.stateVersion}";
 }
