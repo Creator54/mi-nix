@@ -13,6 +13,7 @@ in
     ./system/virtManager.nix
     ./system/docker.nix
     ./system/services.nix
+    ./system/redshift.nix
     ./system/hosts.nix
     ../hm-stuff/home.nix
     (import "${hm}/nixos")
