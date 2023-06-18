@@ -30,7 +30,7 @@ in
     colorpicker smartmontools jq
     yt-dlp eva ueberzug tree qbittorrent
     unzip picom cmus conky fd #faster find alternative
-    gromit-mpx pup progress
+    gromit-mpx pup progress starship
     anydesk lm_sensors screenkey
     efibootmgr duf gdu xclip direnv clipit
     dig ffmpeg pciutils nix-index #contains nix-locate

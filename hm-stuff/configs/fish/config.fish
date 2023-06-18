@@ -14,6 +14,8 @@ fish_add_path -g $HOME/.node_modules/bin
 fish_add_path -g $HOME/.bun/bin
 fish_add_path -g $HOME/.config/rofi/bin
 direnv hook fish | source
+starship init fish | source
+
 
 if which vim &>/dev/null
     set -gx EDITOR vim

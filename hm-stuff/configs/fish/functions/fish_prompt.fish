@@ -1,1 +1,0 @@
-../mzish/fish_prompt.fish
