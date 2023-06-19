@@ -11,6 +11,7 @@ set -gx FLEX 'creator54@144.24.140.204'
 set -gx server_key '~/.ssh/id_webserver'
 
 fish_add_path -g $HOME/.node_modules/bin
+fish_add_path -g $HOME/.npm-global/bin/
 fish_add_path -g $HOME/.bun/bin
 fish_add_path -g $HOME/.config/rofi/bin
 direnv hook fish | source
