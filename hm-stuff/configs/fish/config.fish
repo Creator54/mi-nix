@@ -49,7 +49,6 @@ alias gb 'git branch'
 alias gl 'git log'
 alias gd 'git diff'
 alias gs 'git status'
-alias gx 'git reset --hard'
 alias gn 'git branch -M main'
 alias gck 'git checkout'
 alias gpull "git pull origin (gb | grep -e '*' | cut -d ' ' -f2)"
