@@ -1,20 +1,18 @@
 { config, pkgs, lib, ... }:
 
+let
+  bluez = pkgs.bluezFull.overrideAttrs (oldAttrs: {
+    configureFlags = oldAttrs.configureFlags ++ [ "--enable-experimental" ];
+  });
+in
+
 {
-  hardware.bluetooth = {
-    enable = true;
-    package = pkgs.bluezFull;
-    hsphfpd.enable = true;
-    powerOnBoot = true;
-    settings = {
-      General = {
-        Enable = "Source,Sink,Media,Socket";
-        DefaultAudio = "headset";
-        DefaultMic = "headset";
-      };
-      Audio = {
-        AutoConnect = true;
-      };
+
+  hardware = { #If no audio,check output devices in pavucontrol
+    bluetooth = {
+      enable = true;
+      package = bluez;
+      powerOnBoot = true;
     };
   };
 
@@ -22,7 +20,7 @@
     blueman.enable = true;
     dbus = {
       enable = true;
-      packages = with pkgs; [ bluezFull ];
+      packages = with pkgs; [ bluez ];
     };
   };
 
@@ -34,12 +32,5 @@
       };
       wantedBy = [ "multi-user.target" ];
     };
-   # mpris-proxy = {
-   #   description = "Mpris proxy";
-   #   after = [ "network.target" "sound.target" ];
-   #   serviceConfig.ExecStart = "${pkgs.bluez}/bin/mpris-proxy";
-   #   wantedBy = [ "default.target" ];
-   # };
   };
 }
-
