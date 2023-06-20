@@ -31,7 +31,7 @@ in
     yt-dlp eva ueberzug tree qbittorrent
     unzip picom cmus conky fd #faster find alternative
     gromit-mpx pup progress starship
-    anydesk lm_sensors screenkey
+    anydesk lm_sensors screenkey android-tools
     efibootmgr duf gdu xclip direnv clipit
     dig ffmpeg pciutils nix-index #contains nix-locate
     entr googler imgp recode glow
