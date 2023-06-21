@@ -16,6 +16,7 @@ in
     ".config/gtk-3.0".source                              = link ./gtk-3.0;
     ".config/htop".source                                 = link ./htop;
     ".config/clipit".source                               = link ./clipit;
+    ".config/kitty/kitty.conf".source                     = link ./kitty.conf;
     ".icons".source                                       = link ./icons;
     ".xinitrc".source                                     = link ./xinitrc;
     ".bashrc".source                                      = link ./bashrc;
