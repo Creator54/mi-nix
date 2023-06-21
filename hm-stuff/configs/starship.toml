@@ -32,6 +32,7 @@ error_symbol = "[❯](red)"
 
 # truncation length works backwards (i.e., cwd > parent > parent ...)
 [directory]
+read_only = " "
 truncation_length = 5
 truncation_symbol = "…/"
 truncate_to_repo = false
