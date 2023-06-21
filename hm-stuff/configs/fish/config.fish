@@ -14,9 +14,21 @@ fish_add_path -g $HOME/.node_modules/bin
 fish_add_path -g $HOME/.npm-global/bin/
 fish_add_path -g $HOME/.bun/bin
 fish_add_path -g $HOME/.config/rofi/bin
+
+# Add the .venv/bin directory to the $PATH
+set -gx PATH $HOME/.venv/bin $PATH
+
+# Set the LD_LIBRARY_PATH
+set -gx LD_LIBRARY_PATH $LD_LIBRARY_PATH $HOME/.nix-profile/lib
+
+if not test -d "$HOME/.venv"
+    python -m venv "$HOME/.venv"
+end
+
+set VIRTUAL_ENV "$HOME/.venv"
+
 direnv hook fish | source
 starship init fish | source
-
 
 if which vim &>/dev/null
     set -gx EDITOR vim
