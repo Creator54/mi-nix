@@ -32,7 +32,7 @@ in
     gromit-mpx pup progress starship nixos-option
     anydesk lm_sensors screenkey android-tools
     efibootmgr duf gdu xclip direnv clipit
-    dig ffmpeg pciutils nix-index #contains nix-locate
+    dig ffmpeg_5-full pciutils nix-index #contains nix-locate
     entr googler imgp recode glow
     papirus-maia-icon-theme fff acpi sxiv axel python39 groff #for ms macros to pdf
     pandoc texlive.combined.scheme-small #for converting .md files to pdf
