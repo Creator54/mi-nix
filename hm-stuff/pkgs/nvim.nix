@@ -1,19 +1,26 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, ... }:
+
 let
-  nvimConfig = if builtins.pathExists "${config.home.homeDirectory}/nvim" then "${config.home.homeDirectory}/nvim" else (
-    pkgs.fetchFromGitHub{
-      owner = "creator54";
-      repo = "starter";
-      rev = "main";
-      sha256 = "sha256-yfBB9pygENIOJfM85oN4gQajZl6ZZzizews82WncXWM";
-    }
-  );
+  owner = "creator54";
+  repo = "starter";
+  rev = "main";
+  nvimConfig = if builtins.pathExists "${config.home.homeDirectory}/nvim" then "${config.home.homeDirectory}/nvim" else
+    let
+      url = "https://github.com/${owner}/${repo}/archive/${rev}.tar.gz";
+      src = builtins.fetchTarball url;
+      sha256 = builtins.hashFile src;
+    in
+    src;
 in
 {
-  programs.neovim.enable = true;
+  programs.neovim = {
+    enable = true;
+    vimAlias = true;
+  };
+
   home = {
     file.".config/nvim".source = config.lib.file.mkOutOfStoreSymlink nvimConfig;
-    packages = [ pkgs.luajit ]; #dep for some plugins
+    packages = [ pkgs.luajit ]; # dep for some plugins
   };
 }
 
