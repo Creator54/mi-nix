@@ -1,4 +1,4 @@
-set -gx TERM kitty
+set -gx TERM alacritty
 set -gx TERMINAL $TERM
 set -gx BROWSER firefox
 set -gx WALLPAPERS $HOME/wallpapers
@@ -7,8 +7,11 @@ set -gx PAGER bat
 set -gx NNN_PLUG 'f:finder;o:fzopen;p:preview-tui;d:diffs;t:nmount;v:imgview;g:!git log;'
 set -gx NNN_FIFO '/tmp/nnn.fifo'
 set -gx NIX 'creator54@129.154.36.185'
-set -gx FLEX 'creator54@144.24.140.204'
+set -gx phoenix 'creator54@152.67.165.253'
 set -gx server_key '~/.ssh/id_webserver'
+
+set -gx ANDROID_HOME /home/creator54/Android/Sdk/
+set -gx JAVA_HOME /nix/store/mdnjlp5wl2cjx5p2my39pr5kyzn7519y-openjdk-17.0.5+8/
 
 fish_add_path -g $HOME/.node_modules/bin
 fish_add_path -g $HOME/.npm-global/bin/
@@ -95,7 +98,7 @@ alias btid "bluetoothctl devices | cut -d ' '  -f2"
 alias lectures "cd /run/mount/data1/Lectures/Study"
 alias stream "cvlc --fullscreen --aspect-ratio 16:9 --loop"
 alias check "cmd nix-shell -I nixpkgs=/home/$USER/nixpkgs -p"
-alias servers "echo $NIX\n$FLEX | dmenu -p ' Select server : '"
+alias servers "echo $NIX\n$phoenix | dmenu -p ' Select server : '"
 alias whereami "curl -s https://ipinfo.io/(curl -s https://ipinfo.io/ip)"
 alias fget "wget -r –level=0 -E –ignore-length -x -k -p -erobots=off -np -N"
 alias fzfv "fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
