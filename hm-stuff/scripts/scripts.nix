@@ -11,6 +11,7 @@ let
   c = pkgs.writeShellScriptBin "c" ''${link ./c.sh} "$@"'';
   v = pkgs.writeShellScriptBin "v" ''${link ./v.sh} "$@"'';
   gr = pkgs.writeShellScriptBin "gr" ''${link ./gr.sh} "$@"'';
+  bt = pkgs.writeShellScriptBin "bt" ''${link ./bt.sh}'';
   net = pkgs.writeShellScriptBin "net" ''${link ./net.sh} "$@"'';
   livewall = pkgs.writeShellScriptBin "livewall" ''${livewallSrc} "$@"'';
   ram = pkgs.writeShellScriptBin "ram" ''${link ./ram.sh}'';
@@ -24,7 +25,7 @@ let
 in
 {
   home.packages = with pkgs; [
-    c v gr net ram cpu fgit swap audio livewall battery packages wifiInterface
+    c v bt gr net ram cpu fgit swap audio livewall battery packages wifiInterface
   ];
 }
 
