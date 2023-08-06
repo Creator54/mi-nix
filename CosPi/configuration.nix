@@ -37,9 +37,6 @@ in
     networkmanager.enable = true;
     hostName = "${uc.host}";
     nameservers = ["1.1.1.1" "8.8.4.4" "8.8.8.8" "9.9.9.9"];
-    wireless.extraConfig = ''
-      options iwlwifi 11n_disable=8
-    '';
   };
 
   #https://discourse.nixos.org/t/fish-shell-and-manual-page-completion-nixos-home-manager/15661/3
