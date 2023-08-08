@@ -72,6 +72,7 @@ in
         "https://cache.nixos.org"
         "https://nixpkgs.cachix.org"
         "https://nix-community.cachix.org"
+        "file:///home/${uc.user}/.nix-cache"
       ];
       trusted-public-keys = [
         "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
