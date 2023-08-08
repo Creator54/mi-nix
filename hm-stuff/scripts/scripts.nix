@@ -20,12 +20,13 @@ let
   swap = pkgs.writeShellScriptBin "swap" ''${link ./swap.sh} "$@"'';
   audio = pkgs.writeShellScriptBin "audio" ''${link ./audio.sh} "$@"'';
   battery = pkgs.writeShellScriptBin "battery" ''${link ./battery.sh} "$@"'';
+  wificonnect = pkgs.writeShellScriptBin "wificonnect" ''${link ./wificonnect.sh} "$@"'';
   packages = pkgs.writeShellScriptBin "packages" ''${link ./packages.sh}'';
   wifiInterface = pkgs.writeShellScriptBin "wifiInterface" ''ip a | grep wlp | cut -d':' -f2| head -n1 |xargs'';
 in
 {
   home.packages = with pkgs; [
-    c v bt gr net ram cpu fgit swap audio livewall battery packages wifiInterface
+    c v bt gr net ram cpu fgit swap audio livewall battery packages wificonnect wifiInterface
   ];
 }
 
