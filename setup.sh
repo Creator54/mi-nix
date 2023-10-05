@@ -50,7 +50,8 @@ function main() {
 	fi
 
 	echo "Updating setup !"
-	home-manager switch -b backup
+	nix build .#home-config.activationPackage --impure
+	./result/activate
 }
 
 case "$1" in
