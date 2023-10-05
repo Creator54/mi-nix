@@ -1,0 +1,14 @@
+[PopLaunch1]
+binding='Launch1'
+command='gnome-control-center wifi'
+name='WiFi'
+
+[custom0]
+binding='<Primary><Super>p'
+command='poweroff'
+name='Poweroff'
+
+[custom1]
+binding='<Primary><Super>r'
+command='reboot'
+name='Restart'
