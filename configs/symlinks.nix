@@ -5,6 +5,7 @@ in
 {
   home.file = {
     ".config/nixpkgs/config.nix".source                   = link ./config.nix;
+    ".config/nix/nix.conf".source                         = link ./nix.conf;
     ".config/gromit-mpx.ini".source                       = link ./gromit-mpx.ini;
     ".config/flameshot".source                            = link ./flameshot;
     ".config/fish".source                                 = link ./fish;
