@@ -50,8 +50,8 @@ function main() {
 	fi
 
 	echo "Updating setup !"
-	nix build .#home-config.activationPackage --impure
-	./result/activate
+	nix build $SCRIPT_PATH#home-config.activationPackage --impure
+	$SCRIPT_PATH/result/activate
 }
 
 case "$1" in

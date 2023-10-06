@@ -21,7 +21,7 @@ let
     duckduckgo-privacy-essentials
   ];
   firefoxSettings = {
-    "browser.startup.homepage" = "${link ./index.html}";
+    "browser.startup.homepage" = "https://google.com";
     "browser.search.region" = "IN";
     "browser.search.isUS" = false;
     "browser.download.animateNotifications" = false;
