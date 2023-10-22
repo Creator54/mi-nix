@@ -9,7 +9,6 @@ in
       ./wm/dwm.nix
       ./wm/wm-pkgs.nix
       ./pkgs/general.nix
-      ./pkgs/firefox/firefox.nix
       ./scripts/scripts.nix
       ./configs/symlinks.nix
     ];

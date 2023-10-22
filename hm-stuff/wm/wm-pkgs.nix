@@ -25,6 +25,8 @@ in
   ];
 
   services = {
+    # THis should be enabled in NixOS by configuration.nix
+    #udisks2.enable = true;
     udiskie = {
       enable = true;
       notify = true;
@@ -33,10 +35,11 @@ in
   };
  
   #https://github.com/nix-community/home-manager/issues/2064
-  #systemd.user.targets.tray = {
-	#	Unit = {
-	#		Description = "Home Manager System Tray";
-	#		Requires = [ "graphical-session-pre.target" ];
-	#	};
-	#};
+  # As issues have not beeen resolved it, this work-round is needed
+  systemd.user.targets.tray = {
+		Unit = {
+			Description = "Home Manager System Tray";
+			Wants = [ "graphical-session-pre.target" ];
+		};
+	};
 }

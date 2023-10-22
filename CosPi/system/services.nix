@@ -9,7 +9,10 @@ in
     xserver = {
       enable = true;
       layout = "us";
-      libinput.enable = true; 				# touchpad support generally enabled by most display managers
+      libinput = {
+        enable = true; 				# touchpad support generally enabled by most display managers
+        touchpad.naturalScrolling = true;
+      };
       displayManager.sx.enable = true;  #minimal replacement for startx
       videoDrivers = [ "amdgpu" ];
       deviceSection = ''
@@ -46,6 +49,9 @@ in
       helpLine = "";
       autologinUser = "${uc.user}";
     };
+
+    #https://discourse.nixos.org/t/udiskie-no-longer-runs/23768
+    udisks2.enable = true;
     thermald.enable = true;
     upower.enable = true;
     hdapsd.enable = lib.mkDefault true;

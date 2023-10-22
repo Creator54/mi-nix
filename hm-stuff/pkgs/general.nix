@@ -13,6 +13,7 @@ in
     ./fonts.nix
     ./mcfly.nix
     ./zathura.nix
+    ./firefox/firefox.nix
   ];
 
 #  services.kdeconnect = {
@@ -22,7 +23,7 @@ in
 
   home.packages = with pkgs; [
     bc wget htop github-cli nnn openssl xplr
-    aria2 nodejs libclang gcc alacritty
+    aria2 nodejs libclang gcc
     gnumake fzf vlc tdesktop ncftp
     capitaine-cursors fortune file gnome.nautilus
     colorpicker smartmontools jq kitty
