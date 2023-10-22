@@ -30,7 +30,7 @@ in
       timeout = 0; #press Esc while booting if things get messy
       efi.canTouchEfiVariables = true;
     };
-    cleanTmpDir = true;
+    tmp.cleanOnBoot = true;
   };
 
   networking = {
@@ -51,6 +51,7 @@ in
 
   i18n.defaultLocale = "en_US.UTF-8";
 
+  programs.fish.enable = true;
   users.users.${uc.user} = {
     shell = pkgs.fish;
     isNormalUser = true;

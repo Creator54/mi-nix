@@ -26,7 +26,7 @@ let
 in
 {
   home.packages = with pkgs; [
-    c v bt gr net ram cpu fgit swap audio livewall battery packages wificonnect wifiInterface
+    c v bt gr net ram cpu fgit swap audio battery packages wificonnect wifiInterface
   ];
 }
 

@@ -3,14 +3,31 @@
   user = "creator54";
   userEmail = "hi.creator54@gmail.com";
   userHashedPass = "$1$.recy8UF$9gm683TL0.8kAdpRssbhx/";
-  stateVersion = "22.11";
+  stateVersion = "23.05";
   fs = {
-    boot = "/dev/sda1";
-    root = "/dev/sda2";
-    home = "/dev/sda3";
+    boot = "/dev/disk/by-uuid/7EE7-7EF9";
+    root = "/dev/disk/by-uuid/df4e12d1-ce05-4218-a103-fcaabddb01ab";
+    home = "/dev/disk/by-uuid/b204f710-41af-41df-ac9d-3fd38147e0f3";
   };
   hibernation = {
     enable = true;
-    resume_offset="19564544"; #sudo filefrag -v /swapfile | awk '{if($1=="0:"){print $4}}'
+    resume_offset="6346752"; #sudo filefrag -v /swapfile | awk '{if($1=="0:"){print $4}}'
   };
 }
+
+
+#  fileSystems."/" =
+#    { device = "/dev/disk/by-uuid/df4e12d1-ce05-4218-a103-fcaabddb01ab";
+#      fsType = "ext4";
+#    };
+#
+#  fileSystems."/boot" =
+#    { device = "/dev/disk/by-uuid/7EE7-7EF9";
+#      fsType = "vfat";
+#    };
+#
+#  fileSystems."/home" =
+#    { device = "/dev/disk/by-uuid/b204f710-41af-41df-ac9d-3fd38147e0f3";
+#      fsType = "ext4";
+#    };
+#

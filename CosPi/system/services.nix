@@ -11,7 +11,7 @@ in
       layout = "us";
       libinput.enable = true; 				# touchpad support generally enabled by most display managers
       displayManager.sx.enable = true;  #minimal replacement for startx
-      videoDrivers = [ "intel" ];
+      videoDrivers = [ "amdgpu" ];
       deviceSection = ''
         Option "TearFree" "true"
       '';

@@ -13,15 +13,14 @@ in
     ./fonts.nix
     ./mcfly.nix
     ./zathura.nix
-    ./ani-cli.nix
   ];
 
-  services.kdeconnect = {
-    enable = true;
-    indicator = true;
-  };
+#  services.kdeconnect = {
+#    enable = true;
+#    indicator = true;
+#  };
 
-  home.packages = with unstable; [
+  home.packages = with pkgs; [
     bc wget htop github-cli nnn openssl xplr
     aria2 nodejs libclang gcc alacritty
     gnumake fzf vlc tdesktop ncftp

@@ -58,11 +58,11 @@ in
   programs = {
     firefox = {
       enable = true;
-      extensions = firefoxExtensions;
       profiles.default = {
         id = 0;
         name = "Default";
         isDefault = true;
+        extensions = firefoxExtensions;
         userChrome = builtins.readFile "${link ./userChrome.css}";
         settings = firefoxSettings;
       };

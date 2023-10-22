@@ -3,7 +3,7 @@ let
   localDwm = /home/${(import ../../userConfig.nix).user}/dwm;
   localDwmBlocks = /home/${(import ../../userConfig.nix).user}/dwmblocks;
   dwm = pkgs.dwm.overrideAttrs (old: {
-    src = if builtins.pathExists localDwm then localDwm else builtins.fetchTarball "https://github.com/creator54/dwm/tarball/main";
+    src = localDwm;
     nativeBuildInputs = with pkgs; [ #writing once works for both currently, sort of bug and feature
       xorg.libX11.dev
       xorg.libXft

@@ -1,4 +1,4 @@
-set -gx TERM alacritty
+set -gx TERM kitty
 set -gx TERMINAL $TERM
 set -gx BROWSER firefox
 set -gx WALLPAPERS $HOME/wallpapers
