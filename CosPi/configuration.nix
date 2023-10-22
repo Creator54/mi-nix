@@ -15,6 +15,7 @@ in
     ./system/services.nix
     ./system/redshift.nix
     ./system/hosts.nix
+    ./system/plymouth.nix
     ../hm-stuff/home.nix
     (import "${hm}/nixos")
   ];
