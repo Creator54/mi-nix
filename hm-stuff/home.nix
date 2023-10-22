@@ -11,6 +11,7 @@ in
       ./pkgs/general.nix
       ./scripts/scripts.nix
       ./configs/symlinks.nix
+      ./configs/gtk.nix
     ];
 
     home = {
