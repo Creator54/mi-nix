@@ -16,8 +16,11 @@ in
     lidSwitchDocked = "suspend-then-hibernate";
     lidSwitchExternalPower = "suspend-then-hibernate";
 
+    #https://wiki.archlinux.org/title/getty
+    #NAutoVTs specifys no of tty's we can have
     extraConfig = ''
       HandlePowerKey=hybrid-sleep
+      NAutoVTs=1
     '';
   };
 }
