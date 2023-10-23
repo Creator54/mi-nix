@@ -23,7 +23,7 @@ in
 
   home.packages = with pkgs; [
     bc wget htop github-cli nnn openssl xplr
-    aria2 nodejs libclang gcc
+    aria2 nodejs libclang gcc gparted
     gnumake fzf vlc tdesktop ncftp
     capitaine-cursors fortune file gnome.nautilus
     colorpicker smartmontools jq kitty
