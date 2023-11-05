@@ -44,11 +44,12 @@ in
       };
     };
 
-    getty = {
-      greetingLine = "";
-      helpLine = "";
-      autologinUser = "${uc.user}";
-    };
+    # No need to autologin as ony one tty is active now, works as logic screen
+    #getty = {
+    #  greetingLine = "";
+    #  helpLine = "";
+    #  autologinUser = "${uc.user}";
+    #};
 
     #https://discourse.nixos.org/t/udiskie-no-longer-runs/23768
     udisks2.enable = true;

@@ -34,6 +34,6 @@
 
   home = {
     packages = [ pkgs.dconf ];
-    sessionVariables.GTK_THEME = "palenight";
   };
+  systemd.user.sessionVariables.GTK_THEME = "palenight";
 }
