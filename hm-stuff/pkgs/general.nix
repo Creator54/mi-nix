@@ -24,7 +24,7 @@ in
   home.packages = with pkgs; [
     bc wget htop github-cli nnn openssl xplr
     aria2 nodejs libclang gcc gparted
-    gnumake fzf vlc tdesktop ncftp
+    gnumake fzf vlc tdesktop ncftp comma
     capitaine-cursors fortune file gnome.nautilus
     colorpicker smartmontools jq kitty
     yt-dlp eva ueberzug tree qbittorrent
