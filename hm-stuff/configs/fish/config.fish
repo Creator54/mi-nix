@@ -14,6 +14,11 @@ set -gx ANDROID_HOME /home/creator54/Android/Sdk/
 set -gx JAVA_HOME /nix/store/mdnjlp5wl2cjx5p2my39pr5kyzn7519y-openjdk-17.0.5+8/
 
 fish_add_path -g $HOME/.node_modules/bin
+
+if not test -d "$HOME/.npm-global/"
+    npm config set prefix ~/.npm-global
+end
+
 fish_add_path -g $HOME/.npm-global/bin/
 fish_add_path -g $HOME/.local/bin/
 fish_add_path -g $HOME/.bun/bin
@@ -30,6 +35,7 @@ if not test -d "$HOME/.venv"
 end
 
 set VIRTUAL_ENV "$HOME/.venv"
+
 
 direnv hook fish | source
 starship init fish | source
