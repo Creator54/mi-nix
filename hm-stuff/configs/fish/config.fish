@@ -40,6 +40,14 @@ set VIRTUAL_ENV "$HOME/.venv"
 direnv hook fish | source
 starship init fish | source
 
+# Needed for ssh verifiaction GIthub
+if not pgrep ssh-agent &>/dev/null
+    eval (ssh-agent -c) &>/dev/null
+    for x in (ls /home/creator54/.ssh/ | grep -v ".pub\|known_hosts")
+        ssh-add ~/.ssh/$x &>/dev/null
+    end
+end
+
 if which vim &>/dev/null
     set -gx EDITOR vim
     set -gx VISUAL vim
