@@ -2,13 +2,16 @@
 
 # maxzip: A script to compress/decompress directories using tar and brotli
 
+# Default compression level
+level=6
+
 # Function to display help
 show_help() {
 	echo "Usage: maxzip [OPTIONS]... [FILE|DIRECTORY]..."
 	echo "Compress or decompress files or directories using tar and brotli."
 	echo
 	echo "Options:"
-	echo "  -l, --level [0-11]    Set the brotli compression level (default is 8, the highest)."
+	echo "  -l, --level [0-11]    Set the brotli compression level (default is $level, the highest)."
 	echo "  -d, --decompress      Decompress the given .tar.br file."
 	echo "  -h, --help            Display this help and exit."
 	echo "  -b, --brotli-options  Additional options to pass to brotli (e.g., -#9 -v)."
@@ -18,11 +21,11 @@ show_help() {
 	echo "  maxzip --decompress my_file.tar.br"
 }
 
-# Default compression level
-level=8
-
 # Temp directory for compression
 tmp_dir="/tmp"
+
+# Work directory from where the script is invoked
+work_dir=$(pwd)
 
 # Brotli additional options
 brotli_options=""
@@ -87,7 +90,7 @@ else
 fi
 
 # Create a temporary directory in /tmp for the operation
-temp_dir=$(mktemp -d "$tmp_dir/maxzip_tmp.XXXXXXXXXX")
+temp_dir=$(mktemp -d "$tmp_dir/maxzip_tmp.XXXXXXXXXX" || mktemp -d -t "maxzip_tmp")
 
 # Copy the target file or directory to the temporary directory
 cp -r "$target" "$temp_dir"
@@ -109,7 +112,7 @@ if [ -n "$decompress" ]; then
 		echo "Error: Decompression failed."
 		exit 1
 	fi
-	tar -xf "$output"
+	tar -xf "$output" -C "$work_dir"
 	if [ $? -ne 0 ]; then
 		echo "Error: Failed to extract tar file."
 		exit 1
@@ -126,13 +129,9 @@ else
 		echo "Error: Compression failed."
 		exit 1
 	fi
+	# Move the compressed/decompressed file to the original location
+	mv "$temp_dir/$output" "$work_dir"
 fi
-
-# Move the compressed/decompressed file to the original location
-mv "$temp_dir/$output" ./
-
-# Log the completion of the operation
-echo "File saved as $output in the current directory."
 
 # Clean up the temporary directory in /tmp
 rm -rf "$temp_dir"
