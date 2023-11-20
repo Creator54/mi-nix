@@ -19,6 +19,7 @@ let
   fgit = pkgs.writeShellScriptBin "fgit" ''${link ./fgit.sh} "$@"'';
   swap = pkgs.writeShellScriptBin "swap" ''${link ./swap.sh} "$@"'';
   audio = pkgs.writeShellScriptBin "audio" ''${link ./audio.sh} "$@"'';
+  maxzip = pkgs.writeShellScriptBin "maxzip" ''${link ./maxzip.sh} "$@"'';
   battery = pkgs.writeShellScriptBin "battery" ''${link ./battery.sh} "$@"'';
   wificonnect = pkgs.writeShellScriptBin "wificonnect" ''${link ./wificonnect.sh} "$@"'';
   packages = pkgs.writeShellScriptBin "packages" ''${link ./packages.sh}'';
@@ -26,7 +27,7 @@ let
 in
 {
   home.packages = with pkgs; [
-    c v bt gr net ram cpu fgit swap audio battery packages wificonnect wifiInterface
+    c v bt gr net ram cpu fgit swap maxzip audio battery packages wificonnect wifiInterface
   ];
 }
 
