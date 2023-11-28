@@ -1,9 +1,14 @@
 #!/usr/bin/env bash
 
-used=$(free -h|awk '/^Mem/{print $3}'| grep -Eo '[0-9].[0-9]')
-if echo $used | grep "\." &> /dev/null
-then
-  echo $(echo "$used*1.07" | bc )GB
+# Get memory usage in MB
+used_mb=$(free -m | awk '/^Mem:/{print $3}')
+
+# Check if memory usage is 1024 MB or more
+if [ "$used_mb" -ge 1024 ]; then
+	# Convert to GB and display
+	used_gb=$(echo "scale=2; $used_mb / 1024" | bc)
+	echo "$used_gb GB"
 else
-  echo $(echo "$used*1.048576" | bc | cut -d'.' -f1)MB
+	# Display in MB
+	echo "$used_mb MB"
 fi
