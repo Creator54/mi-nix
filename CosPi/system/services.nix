@@ -33,8 +33,6 @@ in
     tlp = {
       enable = true;
       settings = {
-        CPU_SCALING_GOVERNOR_ON_BAT="schedutil";
-        CPU_SCALING_GOVERNOR_ON_AC="schedutil";
         START_CHARGE_THRESH_BAT0=95;
         STOP_CHARGE_THRESH_BAT0=100;
         CPU_MAX_PERF_ON_AC=100;

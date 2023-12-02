@@ -13,9 +13,8 @@ in
       name = "flathub"; location = "https://flathub.org/repo/flathub.flatpakrepo";
     }];
     packages = [
-      { appId = "com.usebottles.bottles"; origin = "flathub"; }
       { appId = "io.github.thetumultuousunicornofdarkness.cpu-x"; origin = "flathub"; }
-      { appId = "com.microsoft.EdgeDev"; origin = "flathub"; }
+      { appId = "io.webtorrent.WebTorrent"; origin = "flathub"; }
     ];
 
     update.auto = {
