@@ -11,7 +11,6 @@ set -gx phoenix 'creator54@152.67.165.253'
 set -gx server_key '~/.ssh/id_webserver'
 
 set -gx ANDROID_HOME /home/creator54/Android/Sdk/
-set -gx JAVA_HOME /nix/store/mdnjlp5wl2cjx5p2my39pr5kyzn7519y-openjdk-17.0.5+8/
 
 fish_add_path -g $HOME/.node_modules/bin
 
@@ -58,11 +57,6 @@ end
 
 if [ -f ~/api-chat ]
     set -gx OPENAI_API_KEY (sed 's/\n//g' ~/api-chat)
-end
-
-if [ -f ~/GIT_CONFIG ]
-    export GIT_USERNAME=$(cat ~/GIT_CONFIG | head -n +1)
-    export GIT_USEREMAIL=$(cat ~/GIT_CONFIG | tail -n -1)
 end
 
 alias e $EDITOR
