@@ -60,6 +60,11 @@ if [ -f ~/api-chat ]
     set -gx OPENAI_API_KEY (sed 's/\n//g' ~/api-chat)
 end
 
+if [ -f ~/GIT_CONFIG ]
+    export GIT_USERNAME=$(cat ~/GIT_CONFIG | head -n +1)
+    export GIT_USEREMAIL=$(cat ~/GIT_CONFIG | tail -n -1)
+end
+
 alias e $EDITOR
 alias vim nvim
 alias recent 'v -r'
