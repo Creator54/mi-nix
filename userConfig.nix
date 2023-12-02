@@ -10,8 +10,8 @@
     home = "/dev/disk/by-uuid/b204f710-41af-41df-ac9d-3fd38147e0f3";
   };
   hibernation = {
-    enable = true;
-    resume_offset="6346752"; #sudo filefrag -v /swapfile | awk '{if($1=="0:"){print $4}}'
+    enable = false;
+    resume_offset="23123968"; #sudo filefrag -v /swapfile | awk '{if($1=="0:"){print $4}}'
   };
 }
 
