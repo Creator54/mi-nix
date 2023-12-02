@@ -13,6 +13,7 @@ in
     ./fonts.nix
     ./mcfly.nix
     ./zathura.nix
+    ./ani-cli.nix
     ./firefox/firefox.nix
   ];
 

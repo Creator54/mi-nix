@@ -1,15 +1,12 @@
 { pkgs, lib, ... }:
 
 let
-  ani-cli = pkgs.ani-cli.overrideAttrs (old: {
-    src = (pkgs.fetchFromGitHub {
-      owner = "pystardust";
-      repo = "ani-cli";
-      rev = "master";
-      sha256 = "sha256-vxGQnu/YudC/Jla5lpos6fZwUpb5eaHCC2e87xJ0SPY=";
-    });
-  });
+  src = builtins.fetchTarball "https://github.com/pystardust/ani-cli/archive/master.tar.gz";
+  sha256 = builtins.hashFile src;
+
+  ani-cli-latest = pkgs.ani-cli.overrideAttrs (old: { src = src; });
 in
 {
-  home.packages = [ ani-cli ];
+  home.packages = [ ani-cli-latest ];
 }
+
