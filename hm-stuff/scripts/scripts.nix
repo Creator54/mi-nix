@@ -3,10 +3,14 @@ let
   link = config.lib.file.mkOutOfStoreSymlink;
 
   livewallLocal = /home/${(import ../../userConfig.nix).user}/livewall/livewall;
-  livewallSrc = if builtins.pathExists livewallLocal then link livewallLocal else link builtins.fetchurl{
+  livewallSrc = if builtins.pathExists livewallLocal then link livewallLocal else pkgs.writeShellScript "livewall" (builtins.readFile (builtins.fetchurl {
     url = "https://raw.githubusercontent.com/Creator54/livewall/main/livewall";
-    sha256 = "sha256:1v7jv0h04b6zq07lgl58gpmhlqx7j6k2rljddiw99hazkp0fl50l";
-  };
+    sha256 = builtins.hashFile "sha256" (builtins.fetchurl {
+      url = "https://raw.githubusercontent.com/Creator54/livewall/main/livewall";
+      name = "livewall";
+    });
+  }));
+
 
   c = pkgs.writeShellScriptBin "c" ''${link ./c.sh} "$@"'';
   v = pkgs.writeShellScriptBin "v" ''${link ./v.sh} "$@"'';
@@ -27,7 +31,7 @@ let
 in
 {
   home.packages = with pkgs; [
-    c v bt gr net ram cpu fgit swap maxzip audio battery packages wificonnect wifiInterface
+    c v bt gr net ram cpu fgit swap maxzip audio battery packages wificonnect livewall wifiInterface
   ];
 }
 
