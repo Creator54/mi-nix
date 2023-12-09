@@ -53,19 +53,18 @@ in
     udisks2.enable = true;
     thermald.enable = true;
     upower.enable = true;
-    hdapsd.enable = lib.mkDefault true;
     gnome.gnome-keyring.enable = true; #fails to save if enabled via home-manager
   };
 
   # systemd services which i dont like/use mostly cuz increases boot time and i find no issues not having them
-  systemd.services = {
-    systemd-udev-settle.enable = false;
-    NetworkManager-wait-online.enable = false;
-    firewall.enable = false;
-    systemd-journal-flush.enable = false;
-    lvm2-activation-early.enable = false;
-    lvm2-activation.enable = false;
-  };
+  #systemd.services = {
+  #  systemd-udev-settle.enable = false;
+  #  NetworkManager-wait-online.enable = false;
+  #  firewall.enable = false;
+  #  systemd-journal-flush.enable = false;
+  #  lvm2-activation-early.enable = false;
+  #  lvm2-activation.enable = false;
+  #};
 
   programs = {
     light.enable = true;
