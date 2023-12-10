@@ -2,36 +2,30 @@
 let
   link = config.lib.file.mkOutOfStoreSymlink;
 
-  livewallLocal = /home/${(import ../../userConfig.nix).user}/livewall/livewall;
-  livewallSrc = if builtins.pathExists livewallLocal then link livewallLocal else pkgs.writeShellScript "livewall" (builtins.readFile (builtins.fetchurl {
+  livewall = pkgs.writeShellScriptBin "livewall" (builtins.readFile (builtins.fetchurl {
     url = "https://raw.githubusercontent.com/Creator54/livewall/main/livewall";
     sha256 = builtins.hashFile "sha256" (builtins.fetchurl {
       url = "https://raw.githubusercontent.com/Creator54/livewall/main/livewall";
-      name = "livewall";
     });
   }));
 
-  ghvSrc = pkgs.writeShellScript "ghv" (builtins.readFile (builtins.fetchurl {
+  ghv = pkgs.writeShellScriptBin "ghv" (builtins.readFile (builtins.fetchurl {
     url = "https://raw.githubusercontent.com/Creator54/ghv/main/ghv";
     sha256 = builtins.hashFile "sha256" (builtins.fetchurl {
       url = "https://raw.githubusercontent.com/Creator54/ghv/main/ghv";
-      name = "ghv";
     });
   }));
-
 
   c = pkgs.writeShellScriptBin "c" ''${link ./c.sh} "$@"'';
   v = pkgs.writeShellScriptBin "v" ''${link ./v.sh} "$@"'';
   gr = pkgs.writeShellScriptBin "gr" ''${link ./gr.sh} "$@"'';
   bt = pkgs.writeShellScriptBin "bt" ''${link ./bt.sh}'';
   net = pkgs.writeShellScriptBin "net" ''${link ./net.sh} "$@"'';
-  ghv = pkgs.writeShellScriptBin "ghv" ''${ghvSrc} "$@"'';
   ram = pkgs.writeShellScriptBin "ram" ''${link ./ram.sh}'';
   cpu = pkgs.writeShellScriptBin "cpu" ''${link ./cpu.sh}'';
   fgit = pkgs.writeShellScriptBin "fgit" ''${link ./fgit.sh} "$@"'';
   swap = pkgs.writeShellScriptBin "swap" ''${link ./swap.sh} "$@"'';
   audio = pkgs.writeShellScriptBin "audio" ''${link ./audio.sh} "$@"'';
-  livewall = pkgs.writeShellScriptBin "livewall" ''${livewallSrc} "$@"'';
   maxzip = pkgs.writeShellScriptBin "maxzip" ''${link ./maxzip.sh} "$@"'';
   battery = pkgs.writeShellScriptBin "battery" ''${link ./battery.sh} "$@"'';
   wificonnect = pkgs.writeShellScriptBin "wificonnect" ''${link ./wificonnect.sh} "$@"'';
