@@ -15,7 +15,17 @@ in
   systemd.user.services.doom-sync = {
     Unit.Description = "Doom Emacs fetch config";
     Service = {
-      ExecStart = "${pkgs.bash}/bin/bash -c 'DOOM=\"${config.home.homeDirectory}/.config/emacs\"; if [ ! -d \"$DOOM\" ] || [ -z \"$(find \"$DOOM\" -maxdepth 0 -empty)\" ]; then ${pkgs.git}/bin/git clone --depth=1 https://github.com/doomemacs/doomemacs.git \"$DOOM\"; fi;'";
+      ExecStart = ''
+        ${pkgs.bash}/bin/bash -c '\
+        DOOM="${config.home.homeDirectory}/.config/emacs";\
+        if [ ! -d "$DOOM" ]; then \
+          ${pkgs.git}/bin/git clone --depth=1 https://github.com/doomemacs/doomemacs.git "$DOOM" &>/dev/null && \
+          echo "Cloning complete!"; \
+        else \
+          echo "Debug: Directory $DOOM already exists and is not empty."; \
+        fi;\
+        '
+      '';
       RemainAfterExit = true;
     };
     Install.WantedBy = [ "default.target" ];
