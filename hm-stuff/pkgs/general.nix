@@ -14,6 +14,7 @@ in
     ./mcfly.nix
     ./zathura.nix
     ./ani-cli.nix
+    ./doom-emacs.nix
     ./firefox/firefox.nix
   ];
 
