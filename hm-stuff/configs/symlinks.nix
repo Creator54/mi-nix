@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, ... }:
 let
   link = config.lib.file.mkOutOfStoreSymlink;
 in

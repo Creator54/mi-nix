@@ -1,8 +1,4 @@
-{ config, pkgs, lib, ... }:
-
-let
-  uc = (import ../../userConfig.nix);
-in
+{ pkgs, lib, ... }:
 
 {
   services = {

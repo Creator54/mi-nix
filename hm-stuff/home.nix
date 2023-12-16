@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ ... }:
 
 let
   uc = (import ../userConfig.nix);

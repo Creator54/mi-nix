@@ -1,11 +1,11 @@
-{ config, pkgs,... }:
+{ pkgs,... }:
 
 let
-  blockchain = pkgs.stdenv.mkDerivation rec {
+  blockchain = pkgs.stdenv.mkDerivation {
     pname = "adi1090x-plymouth";
     version = "0.0.1";
     src = builtins.fetchurl {
-      url = https://github.com/adi1090x/files/raw/master/plymouth-themes/themes/pack_1/blockchain.tar.gz;
+      url = "https://github.com/adi1090x/files/raw/master/plymouth-themes/themes/pack_1/blockchain.tar.gz";
       sha256 = "sha256:1f60nvrk506bqw47g90wzbvn3bp5h1gbi0ll5f3bd6wj77qfk05i";
     };
 

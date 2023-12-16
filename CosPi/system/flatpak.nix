@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ pkgs, ... }:
 
 let
   nix-flatpak-src = builtins.fetchTarball "https://github.com/gmodena/nix-flatpak/archive/refs/tags/v0.1.0.tar.gz";
@@ -25,6 +25,7 @@ in
 
   xdg.portal = {
     enable = true;
+    config.common.default = "*";
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
 

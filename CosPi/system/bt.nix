@@ -1,7 +1,7 @@
-{ config, pkgs, lib, ... }:
+{ pkgs, ... }:
 
 let
-  bluez = pkgs.bluezFull.overrideAttrs (oldAttrs: {
+  bluez = pkgs.bluez.overrideAttrs (oldAttrs: {
     configureFlags = oldAttrs.configureFlags ++ [ "--enable-experimental"];
   });
 in
@@ -31,7 +31,7 @@ in
     blueman.enable = true;
     dbus = {
       enable = true;
-      packages = with pkgs; [ bluez ];
+      packages = [ pkgs.bluez ];
     };
   };
 

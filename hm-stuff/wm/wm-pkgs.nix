@@ -19,7 +19,6 @@ in
     xorg.xbacklight
     xorg.xf86videointel
     xorg.xf86inputmouse
-    xorg.xf86inputkeyboard
     xorg.xf86inputlibinput
     xorg.xf86inputsynaptics
   ];

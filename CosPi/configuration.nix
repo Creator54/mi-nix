@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 let
   uc = (import ../userConfig.nix);
@@ -10,7 +10,7 @@ in
     ./hardware.nix
     ./system/bt.nix
     ./system/wireguard.nix
-    ./kernels/xanmod.nix
+    ./kernels/zen.nix
     ./system/virtManager.nix
     ./system/docker.nix
     ./system/services.nix

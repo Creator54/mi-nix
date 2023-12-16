@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 let
   localDwm = /home/${(import ../../userConfig.nix).user}/dwm;
   localDwmBlocks = /home/${(import ../../userConfig.nix).user}/dwmblocks;
