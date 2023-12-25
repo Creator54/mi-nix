@@ -16,7 +16,9 @@ let
   dwmblocks = if builtins.pathExists localDwmBlocks then localDwmBlocks else pkgs.dwmblocks.overrideAttrs (old: {
     src = builtins.fetchTarball "https://github.com/creator54/dwmblocks/tarball/master";
   });
+
+  edwm = pkgs.writeShellScriptBin "edwm" ''${link ./edwm.sh}'';
 in
 {
-  home.packages = [ dwm dwmblocks ];
+  home.packages = [ dwm dwmblocks edwm ];
 }

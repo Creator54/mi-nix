@@ -8,7 +8,7 @@ kittyConfig=(
 	"launch --title \"Source\" vim config.def.h"
 	""
 	"# second kitty window"
-	"launch --title \"Compilation Output\" bash -c \"ls config.def.h | entr nix-shell --run 'make clean;make'\""
+	"launch --title \"Compilation Output\" bash -c \"ls config.def.h | entr nix-shell --run 'make clean;make;xdotool key --clearmodifiers \"Super+Shift+r\"'\""
 )
 
 if [[ -d "$dwm_dir" ]]; then
