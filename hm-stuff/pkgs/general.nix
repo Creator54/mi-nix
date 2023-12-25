@@ -1,8 +1,4 @@
-{ config, pkgs, lib, ... }:
-let
-  unstable = import (builtins.fetchTarball https://github.com/nixos/nixpkgs/tarball/nixpkgs-unstable)
-  { config = config.nixpkgs.config; };
-in
+{ pkgs, ... }:
 #using unstable means regular updates, ie more data usage
 {
   imports = [

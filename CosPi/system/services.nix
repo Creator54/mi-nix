@@ -49,6 +49,12 @@
     udisks2.enable = true;
     thermald.enable = true;
     upower.enable = true;
+    # check once using sftp via cli
+    # can give issues if/won't connect if loading a non-interactive bash session is taking time
+    # had direnv and startship running via bashrc due to which ssh conn in nautilus was failing 
+    # and sftp on cli was failing
+    gvfs.enable = true;
+    preload.enable = true;
     gnome.gnome-keyring.enable = true; #fails to save if enabled via home-manager
   };
 
@@ -63,6 +69,7 @@
   #};
 
   programs = {
+    ccache.enable = true;
     light.enable = true;
     nix-ld.enable = true; #Run unpatched dynamic binaries on NixOS., check : https://github.com/Mic92/nix-ld
   };

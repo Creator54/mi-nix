@@ -1,4 +1,4 @@
-{ config, pkgs, libs, ... }:
+{ pkgs, ... }:
 let
   dmenu = pkgs.dmenu.overrideAttrs (old: { #custom name also works + prev instead of old works
     version = "5.0";
