@@ -25,6 +25,7 @@ let
   cpu = pkgs.writeShellScriptBin "cpu" ''${link ./cpu.sh}'';
   fgit = pkgs.writeShellScriptBin "fgit" ''${link ./fgit.sh} "$@"'';
   swap = pkgs.writeShellScriptBin "swap" ''${link ./swap.sh} "$@"'';
+  cdev = pkgs.writeShellScriptBin "cdev" ''${link ./cdev.sh} "$@"'';
   audio = pkgs.writeShellScriptBin "audio" ''${link ./audio.sh} "$@"'';
   maxzip = pkgs.writeShellScriptBin "maxzip" ''${link ./maxzip.sh} "$@"'';
   battery = pkgs.writeShellScriptBin "battery" ''${link ./battery.sh} "$@"'';
@@ -34,7 +35,7 @@ let
 in
 {
   home.packages = [
-    c v bt gr ghv net ram cpu fgit swap maxzip audio battery packages wificonnect livewall wifiInterface
+    c v bt gr ghv net ram cpu cdev fgit swap maxzip audio battery packages wificonnect livewall wifiInterface
   ];
 }
 
