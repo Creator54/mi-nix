@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, ... }:
 let
   link = config.lib.file.mkOutOfStoreSymlink;
 
@@ -23,6 +23,7 @@ let
   net = pkgs.writeShellScriptBin "net" ''${link ./net.sh} "$@"'';
   ram = pkgs.writeShellScriptBin "ram" ''${link ./ram.sh}'';
   cpu = pkgs.writeShellScriptBin "cpu" ''${link ./cpu.sh}'';
+  edwm = pkgs.writeShellScriptBin "edwm" ''${link ./edwm.sh}'';
   fgit = pkgs.writeShellScriptBin "fgit" ''${link ./fgit.sh} "$@"'';
   swap = pkgs.writeShellScriptBin "swap" ''${link ./swap.sh} "$@"'';
   audio = pkgs.writeShellScriptBin "audio" ''${link ./audio.sh} "$@"'';
@@ -33,8 +34,8 @@ let
   wifiInterface = pkgs.writeShellScriptBin "wifiInterface" ''ip a | grep wlp | cut -d':' -f2| head -n1 |xargs'';
 in
 {
-  home.packages = with pkgs; [
-    c v bt gr ghv net ram cpu fgit swap maxzip audio battery packages wificonnect livewall wifiInterface
+  home.packages = [
+    c v bt gr ghv net ram cpu fgit edwm swap maxzip audio battery packages wificonnect livewall wifiInterface
   ];
 }
 
