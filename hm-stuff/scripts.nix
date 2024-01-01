@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 let
-  scriptsDir = "/home/creator54/mi-nix/hm-stuff/scripts";
+  scriptsDir = "${config.home.homeDirectory}/mi-nix/hm-stuff/scripts";
   binDir = "${config.home.homeDirectory}/.local/bin";
 
   fetchScript = name: url: pkgs.writeShellScriptBin name (builtins.readFile (builtins.fetchurl {
