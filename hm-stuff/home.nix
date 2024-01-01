@@ -8,8 +8,8 @@ in
     imports = [
       ./wm/dwm.nix
       ./wm/wm-pkgs.nix
+      ./scripts.nix
       ./pkgs/general.nix
-      ./scripts/scripts.nix
       ./configs/symlinks.nix
       ./configs/gtk.nix
     ];
