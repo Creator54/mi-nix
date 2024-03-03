@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# Define variables
+BIT_RATE="100M" # Adjusted the bitrate for better quality
+OUTPUT_FORMAT="h264"
+SIZE="1920x1080"         # Changed to full HD resolution
+FRAMERATE="60"           # Kept the same as original
+OUTPUT_FILE="output.mp4" # You can change this to whatever you like
+
+# Execute screen recording and pipe output to ffplay
+adb exec-out screenrecord --bit-rate=$BIT_RATE --output-format=$OUTPUT_FORMAT --size=$SIZE - |
+	ffplay -framerate $FRAMERATE -framedrop -fflags nobuffer -flags low_delay \
+		-strict experimental -analyzeduration 100000 -probesize 64 -sync ext \
+		-vf setpts=0 -fflags discardcorrupt -
