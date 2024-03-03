@@ -81,7 +81,7 @@ alias gd 'git diff'
 alias gs 'git status'
 alias gn 'git branch -M main'
 alias gck 'git checkout'
-alias gpull "git pull origin (gb | grep -e '*' | cut -d ' ' -f2)"
+alias gpull "git stash;git pull origin (gb | grep -e '*' | cut -d ' ' -f2);git stash pop"
 
 alias hs hm
 alias files nautilus
@@ -104,7 +104,7 @@ alias view_pic "kitty +kitten icat" #for viewing images in kitty
 alias fix-headphones "alsactl restore" #https://github.com/NixOS/nixpkgs/issues/34460
 alias torrent "io.webtorrent.WebTorrent"
 alias copy "rsync --info=progress2 -auvz"
-alias phone "ftp ftp://192.168.43.1:2221"
+alias phone "ftp ftp://192.168.1.236:2221"
 alias keys "screenkey --no-systray -t 0.4"
 alias headset "bluetooth on && sleep 1 && bluetoothctl connect (btid)"
 alias btid "bluetoothctl devices | cut -d ' '  -f2"

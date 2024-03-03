@@ -66,7 +66,7 @@ in
 
   nix = {
     gc = {
-      automatic = true; 				# runs nix-collect-garbage which removes old unrefrenced packages
+      automatic = false; 				# runs nix-collect-garbage which removes old unrefrenced packages
       dates = "weekly";
       options = "--delete-older-than 7d";
     };
