@@ -34,7 +34,7 @@
     entr googler imgp recode glow yazi
     papirus-maia-icon-theme fff acpi sxiv axel python39 groff #for ms macros to pdf
     pandoc texlive.combined.scheme-small #for converting .md files to pdf
-    ddgr ytfzf dua
+    ddgr ytfzf dua simplescreenrecorder
     (kodi.withPackages (p: with p; [ inputstream-adaptive pvr-iptvsimple inputstreamhelper ])) #kodi with jiotv, last is for drm
   ];
   nixpkgs.config.allowUnfree = true;
